@@ -2,9 +2,9 @@ FROM php:8.3-apache-bookworm
 
 WORKDIR /var/www/html
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git unzip libzip-dev libpng-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo_mysql zip bcmath gd \
+RUN apt-get update -y && apt-get install -y --no-install-recommends \
+    git unzip \
+    && docker-php-ext-install pdo_mysql \
     && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 
